@@ -54,6 +54,6 @@ objs = []
 for src in srcs:
    objs.append(tools_env.Object(src))
 
-test = tools_env.Program('test', objs + tools_env['LIBS'])
+test = tools_env.Program('test', objs + tools_env['LIBS'], LIBPATH = ['/usr/lib', '/usr/lib/arm-linux-gnueabihf'])
 
 Default([test, ws2811_lib])

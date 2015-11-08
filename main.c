@@ -38,6 +38,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <signal.h>
+#include <math.h>
 
 #include "board_info.h"
 #include "clk.h"
@@ -46,6 +47,8 @@
 
 #include "ws2811.h"
 
+//#define DEBUG
+#define MAX_INTENSITY	64		// out of 255
 
 #define ARRAY_SIZE(stuff)                        (sizeof(stuff) / sizeof(stuff[0]))
 
@@ -53,8 +56,8 @@
 #define GPIO_PIN                                 18
 #define DMA                                      5
 
-#define WIDTH                                    3
-#define HEIGHT                                   3
+#define WIDTH                                    8
+#define HEIGHT                                   8
 #define LED_COUNT                                (WIDTH * HEIGHT)
 
 
@@ -81,34 +84,13 @@ ws2811_t ledstring =
     },
 };
 
-ws2811_led_t matrix[WIDTH][HEIGHT];
+struct pixel {
+	float r;
+	float g;
+	float b;
+};
+struct pixel matrix[WIDTH*HEIGHT];
 
-
-void matrix_render(void)
-{
-    int x, y;
-
-    for (x = 0; x < WIDTH; x++)
-    {
-        for (y = 0; y < HEIGHT; y++)
-        {
-            ledstring.channel[0].leds[(y * WIDTH) + x] = matrix[x][y];
-        }
-    }
-}
-
-void matrix_raise(void)
-{
-    int x, y;
-
-    for (y = 0; y < (HEIGHT - 1); y++)
-    {
-        for (x = 0; x < WIDTH; x++)
-        {
-            matrix[x][y] = matrix[x][y + 1];
-        }
-    }
-}
 
 int dotspos[] = { 0, 1, 2, 3, 4, 5, 6, 7 };
 ws2811_led_t dotcolors[] =
@@ -123,20 +105,28 @@ ws2811_led_t dotcolors[] =
     0x201000,  // orange
 };
 
-void matrix_bottom(void)
+void renderMatrix()
 {
-    int i;
-    static int x = 0;
+	int i;
+	for (i=0; i<WIDTH*HEIGHT; i++) {
+		struct pixel* p = &matrix[i];
+		setLED(i, p->r, p->g, p->b);
+	}
+}
 
-    for (i = 0; i < WIDTH; i++)
-    {
-        matrix[i][HEIGHT - 1] = dotcolors[x & 7];
-    }
-    x++;
+void clearMatrix()
+{
+	for (int i=0; i<WIDTH*HEIGHT; i++) {
+		matrix[i] = 0;
+	}
 }
 
 static void ctrl_c_handler(int signum)
 {
+	clearMatrix();
+	renderMatrix();
+	ws2811_render(&ledstring);
+
     ws2811_fini(&ledstring);
 }
 
@@ -147,12 +137,30 @@ static void setup_handlers(void)
         .sa_handler = ctrl_c_handler,
     };
 
-    sigaction(SIGKILL, &sa, NULL);
+    sigaction(SIGINT, &sa, NULL);
+}
+
+uint32_t getScaled(float val)
+{
+	int v2 = (int)(val*MAX_INTENSITY);
+	return v2;
+}
+
+void setLED(int i, float r, float g, float b)
+{
+	uint32_t finalVal = getScaled(r)<<16 | getScaled(g)<<8 | getScaled(b);
+	ledstring.channel[0].leds[i] = finalVal;
+#ifdef DEBUG
+	printf("(r,g,b) = (%f, %f, %f)\n", r, g, b);
+	printf("int (r,g,b) = (%d, %d, %d)\n", getScaled(r), getScaled(g), getScaled(b));
+#endif
 }
 
 int main(int argc, char *argv[])
 {
     int ret = 0;
+	float time=0;
+	int i;
 
     if (board_info_init() < 0)
     {
@@ -165,24 +173,21 @@ int main(int argc, char *argv[])
     {
         return -1;
     }
-    if (0)
-    {
-        void *p = malloc(32000000);
-        memset(p, 42, 32000000);
-        free(p);
-    }
+
+	// reset matrix with
+	clearMatrix();
 
     while (1)
     {
-        matrix_raise();
-        matrix_bottom();
-        if (0)
-        {
-            void *p = malloc(64000000);
-            memset(p, 42, 64000000);
-            free(p);
-        }
-        matrix_render();
+		// rainbow below
+		for (i=0; i<WIDTH*HEIGHT; i++) {
+			matrix[i].r = (sin(time*17 + (float)i/100)*0.5+0.5)*1;
+			matrix[i].g = (sin(1+time*19 + (float)i/100)*0.5+0.5)*1;
+			matrix[i].b = (sin(2+time*13 + (float)i/100)*0.5+0.5)*1;
+		}
+
+		// render matrix into ledstring
+		renderMatrix();
 
         if (ws2811_render(&ledstring))
         {
@@ -190,8 +195,10 @@ int main(int argc, char *argv[])
             break;
         }
 
-        // 15 frames /sec
-        usleep(500000);
+		// refresh every 5 ms (200HZ)
+        usleep(5000);
+		// advance time by 1.6ms
+		time+=0.01666667;
     }
 
     ws2811_fini(&ledstring);

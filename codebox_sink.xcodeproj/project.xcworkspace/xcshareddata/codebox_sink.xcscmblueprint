@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BAA48041A18888D7E1DFD5A1EE6FA20E65B54558",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8907ED1E874CDFDFF54FCEEBA0582CC3E8658EFA" : 0,
+    "BAA48041A18888D7E1DFD5A1EE6FA20E65B54558" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0E1308F7-77B8-458B-B62C-5A6A217D5868",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8907ED1E874CDFDFF54FCEEBA0582CC3E8658EFA" : "",
+    "BAA48041A18888D7E1DFD5A1EE6FA20E65B54558" : "rpi_ws281x\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "codebox_sink",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "codebox_sink.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:galsasson\/codebox",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8907ED1E874CDFDFF54FCEEBA0582CC3E8658EFA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:galsasson\/rpi_ws281x.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BAA48041A18888D7E1DFD5A1EE6FA20E65B54558"
+    }
+  ]
+}

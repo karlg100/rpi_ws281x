@@ -42,7 +42,7 @@ platforms = [
         {                       # Special environment setup
             'CPPPATH' : [
             ],
-            'LINKFLAGS' : [
+            'LINKFLAGS' : ['-lm'
             ],
         },
     ], 

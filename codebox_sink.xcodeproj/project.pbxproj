@@ -1,0 +1,179 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		2AA7C7B01BEEFA9500D3E412 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2AA7C7B11BEEFA9500D3E412 /* .sconsign.dblite */ = {isa = PBXFileReference; lastKnownFileType = file; path = .sconsign.dblite; sourceTree = "<group>"; };
+		2AA7C7B21BEEFA9500D3E412 /* board_info.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = board_info.c; sourceTree = "<group>"; };
+		2AA7C7B31BEEFA9500D3E412 /* board_info.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = board_info.h; sourceTree = "<group>"; };
+		2AA7C7B41BEEFA9500D3E412 /* board_info.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = board_info.o; sourceTree = "<group>"; };
+		2AA7C7B51BEEFA9500D3E412 /* clk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clk.h; sourceTree = "<group>"; };
+		2AA7C7B61BEEFA9500D3E412 /* codebox_sink.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = codebox_sink.xcodeproj; sourceTree = "<group>"; };
+		2AA7C7B91BEEFA9500D3E412 /* dma.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = dma.c; sourceTree = "<group>"; };
+		2AA7C7BA1BEEFA9500D3E412 /* dma.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dma.h; sourceTree = "<group>"; };
+		2AA7C7BB1BEEFA9500D3E412 /* dma.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = dma.o; sourceTree = "<group>"; };
+		2AA7C7BC1BEEFA9500D3E412 /* gpio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gpio.h; sourceTree = "<group>"; };
+		2AA7C7BD1BEEFA9500D3E412 /* libws2811.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libws2811.a; sourceTree = "<group>"; };
+		2AA7C7BE1BEEFA9500D3E412 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		2AA7C7BF1BEEFA9500D3E412 /* linux.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = linux.py; sourceTree = "<group>"; };
+		2AA7C7C01BEEFA9500D3E412 /* linux.pyc */ = {isa = PBXFileReference; lastKnownFileType = file; path = linux.pyc; sourceTree = "<group>"; };
+		2AA7C7C11BEEFA9500D3E412 /* mailbox.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mailbox.c; sourceTree = "<group>"; };
+		2AA7C7C21BEEFA9500D3E412 /* mailbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mailbox.h; sourceTree = "<group>"; };
+		2AA7C7C31BEEFA9500D3E412 /* mailbox.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = mailbox.o; sourceTree = "<group>"; };
+		2AA7C7C41BEEFA9500D3E412 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		2AA7C7C51BEEFA9500D3E412 /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
+		2AA7C7C61BEEFA9500D3E412 /* pwm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pwm.c; sourceTree = "<group>"; };
+		2AA7C7C71BEEFA9500D3E412 /* pwm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pwm.h; sourceTree = "<group>"; };
+		2AA7C7C81BEEFA9500D3E412 /* pwm.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = pwm.o; sourceTree = "<group>"; };
+		2AA7C7CA1BEEFA9500D3E412 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2AA7C7CC1BEEFA9500D3E412 /* lowlevel.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = lowlevel.py; sourceTree = "<group>"; };
+		2AA7C7CD1BEEFA9500D3E412 /* strandtest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = strandtest.py; sourceTree = "<group>"; };
+		2AA7C7CE1BEEFA9500D3E412 /* ez_setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ez_setup.py; sourceTree = "<group>"; };
+		2AA7C7CF1BEEFA9500D3E412 /* neopixel.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = neopixel.py; sourceTree = "<group>"; };
+		2AA7C7D01BEEFA9500D3E412 /* rpi_ws281x.i */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c.preprocessed; path = rpi_ws281x.i; sourceTree = "<group>"; };
+		2AA7C7D11BEEFA9500D3E412 /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setup.py; sourceTree = "<group>"; };
+		2AA7C7D21BEEFA9500D3E412 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2AA7C7D31BEEFA9500D3E412 /* SConscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
+		2AA7C7D41BEEFA9500D3E412 /* SConstruct */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConstruct; sourceTree = "<group>"; };
+		2AA7C7D51BEEFA9500D3E412 /* test */ = {isa = PBXFileReference; lastKnownFileType = file; path = test; sourceTree = "<group>"; };
+		2AA7C7D61BEEFA9500D3E412 /* ws2811.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ws2811.c; sourceTree = "<group>"; };
+		2AA7C7D71BEEFA9500D3E412 /* ws2811.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ws2811.h; sourceTree = "<group>"; };
+		2AA7C7D81BEEFA9500D3E412 /* ws2811.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = ws2811.o; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2AA7C7A81BEEFA4600D3E412 = {
+			isa = PBXGroup;
+			children = (
+				2AA7C7AF1BEEFA9500D3E412 /* src */,
+			);
+			sourceTree = "<group>";
+		};
+		2AA7C7AF1BEEFA9500D3E412 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7C7B01BEEFA9500D3E412 /* .gitignore */,
+				2AA7C7B11BEEFA9500D3E412 /* .sconsign.dblite */,
+				2AA7C7B21BEEFA9500D3E412 /* board_info.c */,
+				2AA7C7B31BEEFA9500D3E412 /* board_info.h */,
+				2AA7C7B41BEEFA9500D3E412 /* board_info.o */,
+				2AA7C7B51BEEFA9500D3E412 /* clk.h */,
+				2AA7C7B61BEEFA9500D3E412 /* codebox_sink.xcodeproj */,
+				2AA7C7B91BEEFA9500D3E412 /* dma.c */,
+				2AA7C7BA1BEEFA9500D3E412 /* dma.h */,
+				2AA7C7BB1BEEFA9500D3E412 /* dma.o */,
+				2AA7C7BC1BEEFA9500D3E412 /* gpio.h */,
+				2AA7C7BD1BEEFA9500D3E412 /* libws2811.a */,
+				2AA7C7BE1BEEFA9500D3E412 /* LICENSE */,
+				2AA7C7BF1BEEFA9500D3E412 /* linux.py */,
+				2AA7C7C01BEEFA9500D3E412 /* linux.pyc */,
+				2AA7C7C11BEEFA9500D3E412 /* mailbox.c */,
+				2AA7C7C21BEEFA9500D3E412 /* mailbox.h */,
+				2AA7C7C31BEEFA9500D3E412 /* mailbox.o */,
+				2AA7C7C41BEEFA9500D3E412 /* main.c */,
+				2AA7C7C51BEEFA9500D3E412 /* main.o */,
+				2AA7C7C61BEEFA9500D3E412 /* pwm.c */,
+				2AA7C7C71BEEFA9500D3E412 /* pwm.h */,
+				2AA7C7C81BEEFA9500D3E412 /* pwm.o */,
+				2AA7C7C91BEEFA9500D3E412 /* python */,
+				2AA7C7D21BEEFA9500D3E412 /* README.md */,
+				2AA7C7D31BEEFA9500D3E412 /* SConscript */,
+				2AA7C7D41BEEFA9500D3E412 /* SConstruct */,
+				2AA7C7D51BEEFA9500D3E412 /* test */,
+				2AA7C7D61BEEFA9500D3E412 /* ws2811.c */,
+				2AA7C7D71BEEFA9500D3E412 /* ws2811.h */,
+				2AA7C7D81BEEFA9500D3E412 /* ws2811.o */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		2AA7C7B71BEEFA9500D3E412 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AA7C7C91BEEFA9500D3E412 /* python */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7C7CA1BEEFA9500D3E412 /* .gitignore */,
+				2AA7C7CB1BEEFA9500D3E412 /* examples */,
+				2AA7C7CE1BEEFA9500D3E412 /* ez_setup.py */,
+				2AA7C7CF1BEEFA9500D3E412 /* neopixel.py */,
+				2AA7C7D01BEEFA9500D3E412 /* rpi_ws281x.i */,
+				2AA7C7D11BEEFA9500D3E412 /* setup.py */,
+			);
+			path = python;
+			sourceTree = "<group>";
+		};
+		2AA7C7CB1BEEFA9500D3E412 /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7C7CC1BEEFA9500D3E412 /* lowlevel.py */,
+				2AA7C7CD1BEEFA9500D3E412 /* strandtest.py */,
+			);
+			path = examples;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		2AA7C7A91BEEFA4600D3E412 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+			};
+			buildConfigurationList = 2AA7C7AC1BEEFA4600D3E412 /* Build configuration list for PBXProject "codebox_sink" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2AA7C7A81BEEFA4600D3E412;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2AA7C7B71BEEFA9500D3E412 /* Products */;
+					ProjectRef = 2AA7C7B61BEEFA9500D3E412 /* codebox_sink.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		2AA7C7AD1BEEFA4600D3E412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2AA7C7AE1BEEFA4600D3E412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AA7C7AC1BEEFA4600D3E412 /* Build configuration list for PBXProject "codebox_sink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AA7C7AD1BEEFA4600D3E412 /* Debug */,
+				2AA7C7AE1BEEFA4600D3E412 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AA7C7A91BEEFA4600D3E412 /* Project object */;
+}
