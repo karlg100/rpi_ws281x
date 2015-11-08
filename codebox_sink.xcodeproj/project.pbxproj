@@ -18,18 +18,14 @@
 		2AA7C7BA1BEEFA9500D3E412 /* dma.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dma.h; sourceTree = "<group>"; };
 		2AA7C7BB1BEEFA9500D3E412 /* dma.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = dma.o; sourceTree = "<group>"; };
 		2AA7C7BC1BEEFA9500D3E412 /* gpio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gpio.h; sourceTree = "<group>"; };
-		2AA7C7BD1BEEFA9500D3E412 /* libws2811.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libws2811.a; sourceTree = "<group>"; };
 		2AA7C7BE1BEEFA9500D3E412 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		2AA7C7BF1BEEFA9500D3E412 /* linux.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = linux.py; sourceTree = "<group>"; };
 		2AA7C7C01BEEFA9500D3E412 /* linux.pyc */ = {isa = PBXFileReference; lastKnownFileType = file; path = linux.pyc; sourceTree = "<group>"; };
 		2AA7C7C11BEEFA9500D3E412 /* mailbox.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mailbox.c; sourceTree = "<group>"; };
 		2AA7C7C21BEEFA9500D3E412 /* mailbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mailbox.h; sourceTree = "<group>"; };
-		2AA7C7C31BEEFA9500D3E412 /* mailbox.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = mailbox.o; sourceTree = "<group>"; };
 		2AA7C7C41BEEFA9500D3E412 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		2AA7C7C51BEEFA9500D3E412 /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
 		2AA7C7C61BEEFA9500D3E412 /* pwm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pwm.c; sourceTree = "<group>"; };
 		2AA7C7C71BEEFA9500D3E412 /* pwm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pwm.h; sourceTree = "<group>"; };
-		2AA7C7C81BEEFA9500D3E412 /* pwm.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = pwm.o; sourceTree = "<group>"; };
 		2AA7C7CA1BEEFA9500D3E412 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2AA7C7CC1BEEFA9500D3E412 /* lowlevel.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = lowlevel.py; sourceTree = "<group>"; };
 		2AA7C7CD1BEEFA9500D3E412 /* strandtest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = strandtest.py; sourceTree = "<group>"; };
@@ -40,10 +36,8 @@
 		2AA7C7D21BEEFA9500D3E412 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2AA7C7D31BEEFA9500D3E412 /* SConscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
 		2AA7C7D41BEEFA9500D3E412 /* SConstruct */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConstruct; sourceTree = "<group>"; };
-		2AA7C7D51BEEFA9500D3E412 /* test */ = {isa = PBXFileReference; lastKnownFileType = file; path = test; sourceTree = "<group>"; };
 		2AA7C7D61BEEFA9500D3E412 /* ws2811.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ws2811.c; sourceTree = "<group>"; };
 		2AA7C7D71BEEFA9500D3E412 /* ws2811.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ws2811.h; sourceTree = "<group>"; };
-		2AA7C7D81BEEFA9500D3E412 /* ws2811.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = ws2811.o; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -68,26 +62,20 @@
 				2AA7C7BA1BEEFA9500D3E412 /* dma.h */,
 				2AA7C7BB1BEEFA9500D3E412 /* dma.o */,
 				2AA7C7BC1BEEFA9500D3E412 /* gpio.h */,
-				2AA7C7BD1BEEFA9500D3E412 /* libws2811.a */,
 				2AA7C7BE1BEEFA9500D3E412 /* LICENSE */,
 				2AA7C7BF1BEEFA9500D3E412 /* linux.py */,
 				2AA7C7C01BEEFA9500D3E412 /* linux.pyc */,
 				2AA7C7C11BEEFA9500D3E412 /* mailbox.c */,
 				2AA7C7C21BEEFA9500D3E412 /* mailbox.h */,
-				2AA7C7C31BEEFA9500D3E412 /* mailbox.o */,
 				2AA7C7C41BEEFA9500D3E412 /* main.c */,
-				2AA7C7C51BEEFA9500D3E412 /* main.o */,
 				2AA7C7C61BEEFA9500D3E412 /* pwm.c */,
 				2AA7C7C71BEEFA9500D3E412 /* pwm.h */,
-				2AA7C7C81BEEFA9500D3E412 /* pwm.o */,
 				2AA7C7C91BEEFA9500D3E412 /* python */,
 				2AA7C7D21BEEFA9500D3E412 /* README.md */,
 				2AA7C7D31BEEFA9500D3E412 /* SConscript */,
 				2AA7C7D41BEEFA9500D3E412 /* SConstruct */,
-				2AA7C7D51BEEFA9500D3E412 /* test */,
 				2AA7C7D61BEEFA9500D3E412 /* ws2811.c */,
 				2AA7C7D71BEEFA9500D3E412 /* ws2811.h */,
-				2AA7C7D81BEEFA9500D3E412 /* ws2811.o */,
 			);
 			name = src;
 			sourceTree = "<group>";

@@ -91,55 +91,6 @@ struct pixel {
 };
 struct pixel matrix[WIDTH*HEIGHT];
 
-
-int dotspos[] = { 0, 1, 2, 3, 4, 5, 6, 7 };
-ws2811_led_t dotcolors[] =
-{
-    0x200000,  // red
-    0x202000,  // yellow
-    0x002020,  // lightblue
-    0x200010,  // pink
-    0x002000,  // green
-    0x100010,  // purple
-    0x000020,  // blue
-    0x201000,  // orange
-};
-
-void renderMatrix()
-{
-	int i;
-	for (i=0; i<WIDTH*HEIGHT; i++) {
-		struct pixel* p = &matrix[i];
-		setLED(i, p->r, p->g, p->b);
-	}
-}
-
-void clearMatrix()
-{
-	for (int i=0; i<WIDTH*HEIGHT; i++) {
-		matrix[i] = 0;
-	}
-}
-
-static void ctrl_c_handler(int signum)
-{
-	clearMatrix();
-	renderMatrix();
-	ws2811_render(&ledstring);
-
-    ws2811_fini(&ledstring);
-}
-
-static void setup_handlers(void)
-{
-    struct sigaction sa =
-    {
-        .sa_handler = ctrl_c_handler,
-    };
-
-    sigaction(SIGINT, &sa, NULL);
-}
-
 uint32_t getScaled(float val)
 {
 	int v2 = (int)(val*MAX_INTENSITY);
@@ -154,6 +105,44 @@ void setLED(int i, float r, float g, float b)
 	printf("(r,g,b) = (%f, %f, %f)\n", r, g, b);
 	printf("int (r,g,b) = (%d, %d, %d)\n", getScaled(r), getScaled(g), getScaled(b));
 #endif
+}
+
+void renderMatrix()
+{
+	int i;
+	for (i=0; i<WIDTH*HEIGHT; i++) {
+		struct pixel* p = &matrix[i];
+		setLED(i, p->r, p->g, p->b);
+	}
+}
+
+void clearMatrix(float r, float g, float b)
+{
+	int i;
+	for (i=0; i<WIDTH*HEIGHT; i++) {
+		matrix[i].r = r;
+		matrix[i].g = g;
+		matrix[i].b = b;
+	}
+}
+
+static void ctrl_c_handler(int signum)
+{
+	clearMatrix(0, 0, 0);
+	renderMatrix();
+	ws2811_render(&ledstring);
+
+    ws2811_fini(&ledstring);
+}
+
+static void setup_handlers(void)
+{
+    struct sigaction sa =
+    {
+        .sa_handler = ctrl_c_handler,
+    };
+
+    sigaction(SIGINT, &sa, NULL);
 }
 
 int main(int argc, char *argv[])
@@ -174,16 +163,16 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-	// reset matrix with
-	clearMatrix();
+	// reset matrix with black
+	clearMatrix(0, 0, 0);
 
     while (1)
     {
 		// rainbow below
 		for (i=0; i<WIDTH*HEIGHT; i++) {
-			matrix[i].r = (sin(time*17 + (float)i/100)*0.5+0.5)*1;
-			matrix[i].g = (sin(1+time*19 + (float)i/100)*0.5+0.5)*1;
-			matrix[i].b = (sin(2+time*13 + (float)i/100)*0.5+0.5)*1;
+			matrix[i].r = (sin(time*0.3 + (float)i/100)*0.5+0.5)*1;
+			matrix[i].g = (sin(1+time*0.5 + (float)i/100)*0.5+0.5)*1;
+			matrix[i].b = (sin(2+time*0.9 + (float)i/100)*0.5+0.5)*1;
 		}
 
 		// render matrix into ledstring
