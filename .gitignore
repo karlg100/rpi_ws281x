@@ -4,4 +4,4 @@ test
 *.o
 *.a
 
-*.xcuserstate
+x_sink.xcodeproj/project.xcworkspace/xcuserdata/gal.xcuserdatad/UserInterfaceState.xcuserstate

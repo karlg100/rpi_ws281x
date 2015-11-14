@@ -39,6 +39,7 @@
 #include <sys/mman.h>
 #include <signal.h>
 #include <math.h>
+#include <sys/shm.h>
 
 #include "board_info.h"
 #include "clk.h"
@@ -89,7 +90,7 @@ struct pixel {
 	float g;
 	float b;
 };
-struct pixel matrix[WIDTH*HEIGHT];
+struct pixel gmatrix[WIDTH*HEIGHT];
 
 uint32_t getScaled(float val)
 {
@@ -107,7 +108,7 @@ void setLED(int i, float r, float g, float b)
 #endif
 }
 
-void renderMatrix()
+void renderMatrix(struct pixel* matrix)
 {
 	int i;
 	for (i=0; i<WIDTH*HEIGHT; i++) {
@@ -145,6 +146,15 @@ static void setup_handlers(void)
     sigaction(SIGINT, &sa, NULL);
 }
 
+void* setup_sharedmem()
+{
+	size_t memsize = sizeof(pixel)*WIDTH*HEIGHT;
+	printf("creating shared memory of %d bytes\n", memsize);
+	int shmid = shmget(33, memsize, IPC_CREAT | 0644 );
+
+	return shmat(shmid, NULL, 0 );
+}
+
 int main(int argc, char *argv[])
 {
     int ret = 0;
@@ -163,6 +173,11 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+	struct pixel* buff = (struct pixel*)setup_sharedmem();
+	if (!buff) {
+		printf("error in setup_sharedmem\n");
+	}
+
 	// reset matrix with black
 	clearMatrix(0, 0, 0);
 
@@ -176,7 +191,8 @@ int main(int argc, char *argv[])
 		}
 
 		// render matrix into ledstring
-		renderMatrix();
+//		renderMatrix(matrix);
+		renderMatrix(buff);
 
         if (ws2811_render(&ledstring))
         {
