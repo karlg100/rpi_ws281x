@@ -121,16 +121,16 @@ void clearMatrix(float r, float g, float b)
 {
 	int i;
 	for (i=0; i<WIDTH*HEIGHT; i++) {
-		matrix[i].r = r;
-		matrix[i].g = g;
-		matrix[i].b = b;
+		gmatrix[i].r = r;
+		gmatrix[i].g = g;
+		gmatrix[i].b = b;
 	}
 }
 
 static void ctrl_c_handler(int signum)
 {
 	clearMatrix(0, 0, 0);
-	renderMatrix();
+	renderMatrix(gmatrix);
 	ws2811_render(&ledstring);
 
     ws2811_fini(&ledstring);
@@ -148,7 +148,7 @@ static void setup_handlers(void)
 
 void* setup_sharedmem()
 {
-	size_t memsize = sizeof(pixel)*WIDTH*HEIGHT;
+	size_t memsize = sizeof(struct pixel)*WIDTH*HEIGHT;
 	printf("creating shared memory of %d bytes\n", memsize);
 	int shmid = shmget(33, memsize, IPC_CREAT | 0644 );
 
@@ -185,13 +185,13 @@ int main(int argc, char *argv[])
     {
 		// rainbow below
 		for (i=0; i<WIDTH*HEIGHT; i++) {
-			matrix[i].r = (sin(time*0.3 + (float)i/100)*0.5+0.5)*1;
-			matrix[i].g = (sin(1+time*0.5 + (float)i/100)*0.5+0.5)*1;
-			matrix[i].b = (sin(2+time*0.9 + (float)i/100)*0.5+0.5)*1;
+			gmatrix[i].r = (sin(time*1.3 + (float)i/100)*0.5+0.5)*1;
+			gmatrix[i].g = (sin(1+time*1.5 + (float)i/100)*0.5+0.5)*1;
+			gmatrix[i].b = (sin(2+time*0.9 + (float)i/100)*0.5+0.5)*1;
 		}
 
 		// render matrix into ledstring
-//		renderMatrix(matrix);
+//		renderMatrix(gmatrix);
 		renderMatrix(buff);
 
         if (ws2811_render(&ledstring))
